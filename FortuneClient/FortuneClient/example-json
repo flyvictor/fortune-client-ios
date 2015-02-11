@@ -1,0 +1,156 @@
+{
+    "resources": [
+{
+"modelOptions": {
+"pk": "testParam"
+},
+"name": "user",
+"route": "tests",
+},
+        {
+            "modelOptions": {
+                "pk": "email"
+            },
+            "name": "user",
+            "route": "users",
+            "schema": {
+                "_links": "Object",
+                "additionalDetails": {},
+                "addresses": [
+                    {
+                        "external": false,
+                        "inverse": "user",
+                        "ref": "address"
+                    }
+                ],
+                "createdAt": "Date",
+                "deletedAt": "Date",
+                "email": {
+                    "docs:example": "peter.pan@neverland.com",
+                    "index": {
+                        "background": true,
+                        "unique": true
+                    },
+                    "type": "String"
+                },
+                "firstName": {
+                    "docs:example": "Peter",
+                    "type": "String"
+                },
+                "flights": [
+                    {
+                        "external": false,
+                        "inverse": "users",
+                        "ref": "flight"
+                    }
+                ],
+                "languageCode": {
+                    "docs:description": "An IETF language tag, e.g en-GB",
+                    "docs:example": "en-GB",
+                    "type": "String"
+                },
+                "lastName": {
+                    "docs:example": "Pan",
+                    "type": "String"
+                },
+                "modifiedAt": "Date",
+                "nationality": {
+                    "docs:example": "British",
+                    "type": "String"
+                },
+                "role": {
+                    "docs:example": "admin",
+                    "type": "String"
+                },
+                "title": {
+                    "docs:example": "Mr",
+                    "type": "String"
+                }
+            }
+        },
+        {
+            "name": "address",
+            "route": "addresses",
+            "schema": {
+                "_links": "Object",
+                "addressLine1": {
+                    "docs:example": "61",
+                    "type": "String"
+                },
+                "addressLine2": {
+                    "docs:example": "Wellfield Road",
+                    "type": "String"
+                },
+                "addressLine3": {
+                    "docs:example": "appt.",
+                    "type": "String"
+                },
+                "addressLine4": {
+                    "docs:example": "17",
+                    "type": "String"
+                },
+                "city": {
+                    "docs:example": "Newcastle upon Tyne",
+                    "type": "String"
+                },
+                "country": {
+                    "docs:example": "UK",
+                    "type": "String"
+                },
+                "createdAt": "Date",
+                "dateDeleted": {
+                    "docs:example": "",
+                    "type": "Date"
+                },
+                "deletedAt": "Date",
+                "modifiedAt": "Date",
+                "postCode": {
+                    "docs:example": "NE1 AB",
+                    "type": "String"
+                },
+                "region": {
+                    "docs:example": "North East",
+                    "type": "String"
+                },
+                "type": {
+                    "docs:example": "home",
+                    "type": "String"
+                },
+                "user": {
+                    "external": false,
+                    "inverse": "addresses",
+                    "ref": "user",
+                    "type": "String"
+                }
+            }
+        },
+        {
+            "modelOptions": {
+                "pk": "flightNumber"
+            },
+            "name": "flight",
+            "route": "flights",
+            "schema": {
+                "_links": "Object",
+                "createdAt": "Date",
+                "deletedAt": "Date",
+                "flightNumber": {
+                    "docs:example": 554,
+                    "index": {
+                        "background": true,
+                        "unique": true
+                    },
+                    "type": "String"
+                },
+                "modifiedAt": "Date",
+                "users": [
+                    {
+                        "external": false,
+                        "inverse": "flights",
+                        "ref": "user"
+                    }
+                ]
+            }
+        }
+    ]
+}
